@@ -5,7 +5,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-        <PackageId>Stratum.ZXing</PackageId>
+        <PackageId>StratumAuth.ZXing</PackageId>
         <Version>1.0.0</Version>
         <Authors>jamie-mh</Authors>
         <Copyright>Copyright (c) jamie-mh 2024</Copyright>
