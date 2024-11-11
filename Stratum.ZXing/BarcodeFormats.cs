@@ -3,7 +3,7 @@
 
 using System;
 
-namespace AuthenticatorPro.ZXing
+namespace Stratum.ZXing
 {
     [Flags]
     internal enum BarcodeFormats

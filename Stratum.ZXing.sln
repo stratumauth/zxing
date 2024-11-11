@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.ZXing", "AuthenticatorPro.ZXing\AuthenticatorPro.ZXing.csproj", "{F8AB7E73-BFEC-4391-A8D4-3F0143C2ECBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratum.ZXing", "Stratum.ZXing\Stratum.ZXing.csproj", "{F8AB7E73-BFEC-4391-A8D4-3F0143C2ECBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.ZXing.Test", "AuthenticatorPro.ZXing.Test\AuthenticatorPro.ZXing.Test.csproj", "{4C82781B-F2EE-4161-BB9F-6A87042681C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratum.ZXing.Test", "Stratum.ZXing.Test\Stratum.ZXing.Test.csproj", "{4C82781B-F2EE-4161-BB9F-6A87042681C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

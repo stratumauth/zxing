@@ -3,7 +3,7 @@
 
 using System;
 
-namespace AuthenticatorPro.ZXing.Interop
+namespace Stratum.ZXing.Interop
 {
     public static class Guard
     {

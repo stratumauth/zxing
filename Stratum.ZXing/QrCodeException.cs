@@ -1,7 +1,7 @@
 // Copyright (C) 2024 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-namespace AuthenticatorPro.ZXing
+namespace Stratum.ZXing
 {
     public class QrCodeException : ZXingException
     {

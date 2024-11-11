@@ -33,10 +33,10 @@ jobs:
 
           cmake --build zxing-cpp.linux-x64 --config Release
 
-          mkdir -p AuthenticatorPro.ZXing/runtimes/linux-x64
-          cp zxing-cpp.linux-x64/core/libZXing.so AuthenticatorPro.ZXing/runtimes/linux-x64/libZXing.so
-          strip --strip-debug AuthenticatorPro.ZXing/runtimes/linux-x64/libZXing.so
-          cp AuthenticatorPro.ZXing/runtimes/linux-x64/libZXing.so AuthenticatorPro.ZXing/libZXing.so
+          mkdir -p Stratum.ZXing/runtimes/linux-x64
+          cp zxing-cpp.linux-x64/core/libZXing.so Stratum.ZXing/runtimes/linux-x64/libZXing.so
+          strip --strip-debug Stratum.ZXing/runtimes/linux-x64/libZXing.so
+          cp Stratum.ZXing/runtimes/linux-x64/libZXing.so Stratum.ZXing/libZXing.so
 
       - name: Build ZXing-C++ (Android)
         run: |
@@ -53,26 +53,26 @@ jobs:
 
             cmake --build "zxing-cpp.android-$abi" --config Release
 
-            mkdir -p "AuthenticatorPro.ZXing/runtimes/android-$abi"
-            cp "zxing-cpp.android-$abi/core/libZXing.so" "AuthenticatorPro.ZXing/runtimes/android-$abi/libZXing.so"
-            $ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip "AuthenticatorPro.ZXing/runtimes/android-$abi/libZXing.so"
+            mkdir -p "Stratum.ZXing/runtimes/android-$abi"
+            cp "zxing-cpp.android-$abi/core/libZXing.so" "Stratum.ZXing/runtimes/android-$abi/libZXing.so"
+            $ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip "Stratum.ZXing/runtimes/android-$abi/libZXing.so"
           done
 
       - name: Build
         run: |
-          dotnet build --configuration $CONFIGURATION AuthenticatorPro.ZXing.sln
+          dotnet build --configuration $CONFIGURATION Stratum.ZXing.sln
 
       - name: Test
         run: |
-          dotnet test --configuration $CONFIGURATION AuthenticatorPro.ZXing.Test/AuthenticatorPro.ZXing.Test.csproj
+          dotnet test --configuration $CONFIGURATION Stratum.ZXing.Test/Stratum.ZXing.Test.csproj
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: authenticatorpro-zxing
-          path: AuthenticatorPro.ZXing/bin/**/AuthenticatorPro.ZXing*.nupkg
+          name: stratum-zxing
+          path: Stratum.ZXing/bin/**/Stratum.ZXing*.nupkg
 
       - name: Publish package
         run: |
-          pkg=$(find AuthenticatorPro.ZXing/bin/$CONFIGURATION/ -name '*.nupkg')
+          pkg=$(find Stratum.ZXing/bin/$CONFIGURATION/ -name '*.nupkg')
           dotnet nuget push $pkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json

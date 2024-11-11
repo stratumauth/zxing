@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
-using AuthenticatorPro.ZXing.Interop;
+using Stratum.ZXing.Interop;
 
-namespace AuthenticatorPro.ZXing
+namespace Stratum.ZXing
 {
     public class QrCodeReader
     {

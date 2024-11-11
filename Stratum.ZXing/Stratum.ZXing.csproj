@@ -5,7 +5,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-        <PackageId>AuthenticatorPro.ZXing</PackageId>
+        <PackageId>Stratum.ZXing</PackageId>
         <Version>1.2.0</Version>
         <Authors>jamie-mh</Authors>
         <Copyright>Copyright (c) jamie-mh 2024</Copyright>

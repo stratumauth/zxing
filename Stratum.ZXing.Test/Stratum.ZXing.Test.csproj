@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AuthenticatorPro.ZXing\AuthenticatorPro.ZXing.csproj" />
+      <ProjectReference Include="..\Stratum.ZXing\Stratum.ZXing.csproj" />
     </ItemGroup>
 
     <ItemGroup>

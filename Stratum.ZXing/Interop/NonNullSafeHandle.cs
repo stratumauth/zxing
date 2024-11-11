@@ -4,7 +4,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace AuthenticatorPro.ZXing.Interop
+namespace Stratum.ZXing.Interop
 {
     internal abstract class NonNullSafeHandle : SafeHandle
     {

@@ -5,7 +5,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 
-namespace AuthenticatorPro.ZXing.Interop
+namespace Stratum.ZXing.Interop
 {
     [CustomMarshaller(typeof(string), MarshalMode.Default, typeof(StringMarshaller))]
     internal static class StringMarshaller

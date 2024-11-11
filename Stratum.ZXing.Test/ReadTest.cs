@@ -1,7 +1,7 @@
 using SkiaSharp;
 using Xunit;
 
-namespace AuthenticatorPro.ZXing.Test
+namespace Stratum.ZXing.Test
 {
     public class ReadTest
     {
