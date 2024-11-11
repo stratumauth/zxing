@@ -7,7 +7,7 @@ using System.Runtime.InteropServices.Marshalling;
 
 namespace Stratum.ZXing.Interop
 {
-    [CustomMarshaller(typeof(string), MarshalMode.Default, typeof(StringMarshaller))]
+    [CustomMarshaller(typeof(string), MarshalMode.ManagedToUnmanagedOut, typeof(StringMarshaller))]
     internal static class StringMarshaller
     {
         public static string ConvertToManaged(IntPtr unmanaged)
