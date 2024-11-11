@@ -8,7 +8,7 @@ namespace Stratum.ZXing.Interop
 {
     internal static partial class NativeMethods
     {
-        private const string SharedObject = "libZXing.so";
+        private const string SharedObject = "ZXing";
 
         [LibraryImport(SharedObject, EntryPoint = "ZXing_ReadBarcode")]
         internal static partial IntPtr ReadBarcode(ImageView.ImageViewSafeHandle imageView, ReaderOptions.ReaderOptionsSafeHandle readerOptions);
