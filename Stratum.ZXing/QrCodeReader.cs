@@ -22,12 +22,22 @@ namespace Stratum.ZXing
         
         public string Read(ImageView imageView)
         {
-            var barcode = NativeMethods.ReadBarcode(imageView.Handle, _options.Handle);
+            var barcodes = NativeMethods.ReadBarcodes(imageView.Handle, _options.Handle);
 
-            if (barcode == IntPtr.Zero)
+            if (barcodes == IntPtr.Zero)
             {
                 return null;
             }
+
+            var size = NativeMethods.Barcodes_Size(barcodes);
+
+            if (size < 1)
+            {
+                return null;
+            }
+
+            var barcode = NativeMethods.Barcodes_Move(barcodes, 0);
+            Guard.ThrowIfNullPointer(barcode);
             
             using var qrCode = new QrCode(barcode);
             

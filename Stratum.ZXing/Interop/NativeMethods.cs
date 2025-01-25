@@ -10,8 +10,14 @@ namespace Stratum.ZXing.Interop
     {
         private const string SharedObject = "ZXing";
 
-        [LibraryImport(SharedObject, EntryPoint = "ZXing_ReadBarcode")]
-        internal static partial IntPtr ReadBarcode(ImageView.ImageViewSafeHandle imageView, ReaderOptions.ReaderOptionsSafeHandle readerOptions);
+        [LibraryImport(SharedObject, EntryPoint = "ZXing_ReadBarcodes")]
+        internal static partial IntPtr ReadBarcodes(ImageView.ImageViewSafeHandle imageView, ReaderOptions.ReaderOptionsSafeHandle readerOptions);
+
+        [LibraryImport(SharedObject, EntryPoint = "ZXing_Barcodes_size")]
+        internal static partial int Barcodes_Size(IntPtr barcodes);
+
+        [LibraryImport(SharedObject, EntryPoint = "ZXing_Barcodes_move")]
+        internal static partial IntPtr Barcodes_Move(IntPtr barcodes, int index);
 
         [LibraryImport(SharedObject, EntryPoint = "ZXing_LastErrorMsg", StringMarshalling = StringMarshalling.Custom, StringMarshallingCustomType = typeof(StringMarshaller))]
         internal static partial string LastErrorMessage();
