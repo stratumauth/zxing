@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  FRAMEWORK: net8.0
+  FRAMEWORK: net9.0
   CONFIGURATION: Release
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 
@@ -22,6 +22,9 @@ jobs:
 
       - name: Build ZXing-C++
         run: |
+          # Enable 16KB page alignment
+          echo 'target_link_options(ZXing PRIVATE "-Wl,-z,max-page-size=16384")' >> zxing-cpp/core/CMakeLists.txt
+
           for abi in armeabi-v7a arm64-v8a x86 x86_64 ; do
             cmake -S zxing-cpp -B "zxing-cpp.android-$abi" \
               -DCMAKE_BUILD_TYPE=Release \
