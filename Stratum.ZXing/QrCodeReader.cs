@@ -37,7 +37,11 @@ namespace Stratum.ZXing
             }
 
             var barcode = NativeMethods.Barcodes_Move(barcodes, 0);
-            Guard.ThrowIfNullPointer(barcode);
+
+            if (barcode == IntPtr.Zero)
+            {
+                return null;
+            }
             
             using var qrCode = new QrCode(barcode);
             
