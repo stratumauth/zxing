@@ -43,14 +43,29 @@ namespace Stratum.ZXing.Test
         }
         
         [Fact]
-        public void Read_rotated()
+        public void Read_tryRotate()
         {
             var reader = new QrCodeReader(new ReaderOptions
             {
                 TryRotate = true
             });
 
+            var image = ReadImage("data/qr-rotated-90.png");
+            var text = reader.Read(image);
+            Assert.Equal("otpauth://totp/Standard%3ATotp?secret=54VEGZFJHM3BGDONFERMPUOKNGDJETGM&issuer=Standard", text);
+        }
+        
+        [Fact]
+        public void Read_rotated()
+        {
+            var reader = new QrCodeReader(new ReaderOptions
+            {
+                TryRotate = false
+            });
+
             var image = ReadImage("data/qr-rotated.png");
+            image.Rotate(30);
+            
             var text = reader.Read(image);
             Assert.Equal("otpauth://totp/Standard%3ATotp?secret=54VEGZFJHM3BGDONFERMPUOKNGDJETGM&issuer=Standard", text);
         }

@@ -46,6 +46,12 @@ namespace Stratum.ZXing.Interop
         [LibraryImport(SharedObject, EntryPoint = "ZXing_ImageView_new_checked")]
         internal static partial IntPtr ImageView_NewChecked(ReadOnlySpan<byte> data, int size, int width, int height, ImageFormat format, int rowStride, int pixelStride);
         
+        [LibraryImport(SharedObject, EntryPoint = "ZXing_ImageView_rotate")]
+        internal static partial IntPtr ImageView_Rotate(ImageView.ImageViewSafeHandle handle, int degrees);
+        
+        [LibraryImport(SharedObject, EntryPoint = "ZXing_ImageView_crop")]
+        internal static partial IntPtr ImageView_Crop(ImageView.ImageViewSafeHandle handle, int left, int top, int width, int height);
+        
         [LibraryImport(SharedObject, EntryPoint = "ZXing_ImageView_delete")]
         internal static partial void ImageView_Delete(IntPtr handle);
         

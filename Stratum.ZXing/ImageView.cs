@@ -22,6 +22,16 @@ namespace Stratum.ZXing
             Guard.ThrowIfNullPointer(handle);
             Handle = new ImageViewSafeHandle(handle);
         }
+
+        public void Rotate(int degrees)
+        {
+            NativeMethods.ImageView_Rotate(Handle, degrees);
+        }
+        
+        public void Crop(int left, int top, int width, int height)
+        {
+            NativeMethods.ImageView_Crop(Handle, left, top, width, height);
+        }
         
         public void Dispose()
         {
