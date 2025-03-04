@@ -18,7 +18,7 @@ namespace Stratum.ZXing
 
         public ImageView(ReadOnlySpan<byte> data, int width, int height, ImageFormat format, int rowStride = 0, int pixelStride = 0)
         {
-            var handle = NativeMethods.ImageView_NewChecked(data, data.Length, width, height, format, rowStride, pixelStride);
+            var handle = NativeMethods.ImageView_New(data, width, height, format, rowStride, pixelStride);
             Guard.ThrowIfNullPointer(handle);
             Handle = new ImageViewSafeHandle(handle);
         }

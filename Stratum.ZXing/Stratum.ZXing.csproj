@@ -6,7 +6,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
         <PackageId>StratumAuth.ZXing</PackageId>
-        <Version>1.2.0</Version>
+        <Version>1.2.1</Version>
         <Authors>jamie-mh</Authors>
         <Copyright>Copyright (c) jamie-mh 2024</Copyright>
         <ProjectUrl>https://stratumauth.com</ProjectUrl>

@@ -43,8 +43,8 @@ namespace Stratum.ZXing.Interop
         internal static partial void Barcode_delete(IntPtr barcode);
         
         // ImageView
-        [LibraryImport(SharedObject, EntryPoint = "ZXing_ImageView_new_checked")]
-        internal static partial IntPtr ImageView_NewChecked(ReadOnlySpan<byte> data, int size, int width, int height, ImageFormat format, int rowStride, int pixelStride);
+        [LibraryImport(SharedObject, EntryPoint = "ZXing_ImageView_new")]
+        internal static partial IntPtr ImageView_New(ReadOnlySpan<byte> data, int width, int height, ImageFormat format, int rowStride, int pixelStride);
         
         [LibraryImport(SharedObject, EntryPoint = "ZXing_ImageView_rotate")]
         internal static partial IntPtr ImageView_Rotate(ImageView.ImageViewSafeHandle handle, int degrees);
