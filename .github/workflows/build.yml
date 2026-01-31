@@ -10,6 +10,7 @@ env:
   FRAMEWORK: net10.0
   CONFIGURATION: Release
   DOTNET_CLI_TELEMETRY_OPTOUT: true
+  MIN_SDK: 23
 
 jobs:
   build-android:
@@ -34,7 +35,8 @@ jobs:
               -DCMAKE_CXX_STANDARD=20 \
               -DZXING_C_API=ON \
               -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
-              -DANDROID_ABI=$abi
+              -DANDROID_ABI=$abi \
+              -DANDROID_PLATFORM=android-$MIN_SDK
 
             cmake --build "zxing-cpp.android-$abi" --config Release
 
