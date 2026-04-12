@@ -60,7 +60,7 @@ namespace Stratum.ZXing.Interop
         internal static partial IntPtr ReaderOptions_New();
         
         [LibraryImport(SharedObject, EntryPoint = "ZXing_ReaderOptions_delete")]
-        internal static partial IntPtr ReaderOptions_Delete(IntPtr handle);
+        internal static partial void ReaderOptions_Delete(IntPtr handle);
         
         [LibraryImport(SharedObject, EntryPoint = "ZXing_ReaderOptions_setTryHarder")]
         internal static partial void ReaderOptions_SetTryHarder(ReaderOptions.ReaderOptionsSafeHandle handle, [MarshalAs(UnmanagedType.I1)] bool value);
@@ -75,9 +75,9 @@ namespace Stratum.ZXing.Interop
         internal static partial void ReaderOptions_SetBinarizer(ReaderOptions.ReaderOptionsSafeHandle handle, Binarizer binarizer);
         
         [LibraryImport(SharedObject, EntryPoint = "ZXing_ReaderOptions_setFormats")]
-        internal static partial void ReaderOptions_SetFormats(IntPtr handle, BarcodeFormats formats);
+        internal static partial void ReaderOptions_SetFormats(ReaderOptions.ReaderOptionsSafeHandle handle, Span<BarcodeFormats> formats, int count);
         
         [LibraryImport(SharedObject, EntryPoint = "ZXing_ReaderOptions_setMaxNumberOfSymbols")]
-        internal static partial void ReaderOptions_SetMaxNumberOfSymbols(IntPtr handle, byte value);
+        internal static partial void ReaderOptions_SetMaxNumberOfSymbols(ReaderOptions.ReaderOptionsSafeHandle handle, byte value);
     }
 }

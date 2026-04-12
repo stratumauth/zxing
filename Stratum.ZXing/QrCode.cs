@@ -38,6 +38,7 @@ namespace Stratum.ZXing
         {
             public BarcodeSafeHandle(IntPtr handle) : base(handle)
             {
+                this.handle = handle;
             }
 
             protected override bool ReleaseHandle()

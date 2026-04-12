@@ -8,6 +8,6 @@ namespace Stratum.ZXing
     [Flags]
     internal enum BarcodeFormats
     {
-        QrCode = 1 << 13,
+        QrCode = 0x2051,
     }
 }

@@ -15,56 +15,50 @@ namespace Stratum.ZXing
             var handle = NativeMethods.ReaderOptions_New();
             Guard.ThrowIfNullPointer(handle);
             
-            NativeMethods.ReaderOptions_SetFormats(handle, BarcodeFormats.QrCode);
-            NativeMethods.ReaderOptions_SetMaxNumberOfSymbols(handle, 1);
-            
             Handle = new ReaderOptionsSafeHandle(handle);
+            NativeMethods.ReaderOptions_SetFormats(Handle, [BarcodeFormats.QrCode], 1);
+            NativeMethods.ReaderOptions_SetMaxNumberOfSymbols(Handle, 1);
         }
 
-        private bool _tryHarder;
-        private bool _tryRotate;
-        private bool _tryInvert;
-        private Binarizer _binarizer = Binarizer.FixedThreshold;
-        
         public bool TryHarder
         {
-            get => _tryHarder;
+            get;
             set
             {
-                _tryHarder = value;
+                field = value;
                 NativeMethods.ReaderOptions_SetTryHarder(Handle, value);
             }
         }
-        
+
         public bool TryRotate
         {
-            get => _tryRotate;
+            get;
             set
             {
-                _tryRotate = value;
+                field = value;
                 NativeMethods.ReaderOptions_SetTryRotate(Handle, value);
             }
         }
-        
+
         public bool TryInvert
         {
-            get => _tryInvert;
+            get;
             set
             {
-                _tryInvert = value;
+                field = value;
                 NativeMethods.ReaderOptions_SetTryInvert(Handle, value);
             }
         }
 
         public Binarizer Binarizer
         {
-            get => _binarizer;
+            get;
             set
             {
-                _binarizer = value;
+                field = value;
                 NativeMethods.ReaderOptions_SetBinarizer(Handle, value);
             }
-        }
+        } = Binarizer.FixedThreshold;
 
         public void Dispose()
         {
@@ -80,6 +74,7 @@ namespace Stratum.ZXing
         {
             public ReaderOptionsSafeHandle(IntPtr handle) : base(handle)
             {
+                this.handle = handle;
             }
 
             protected override bool ReleaseHandle()
